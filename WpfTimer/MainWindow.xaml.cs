@@ -21,10 +21,12 @@ namespace WpfTimer
         {
             InitializeComponent();
             _timer = new Timer();
-            _timer.OnTimeChanged += Time_OnTimeChanged;
+            _timer.OnTimeChanged += Timer_OnTimeChanged;
+            // Inicializa el TextBlock con el tiempo inicial
+            TimeDisplay.Text = TimeSpan.Zero.ToString(@"hh\:mm\:ss");
         }
 
-        private void Time_OnTimeChanged(object sender, TimeSpan e)
+        private void Timer_OnTimeChanged(object sender, TimeSpan e)
         {
             TimeDisplay.Text = e.ToString(@"hh\:mm\:ss");
         }
